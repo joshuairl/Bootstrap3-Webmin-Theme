@@ -20,22 +20,28 @@ if ($in{'page'}) {
 	}
 %text = &load_language($current_theme);
 %gaccess = &get_module_acl(undef, "");
-$title = &get_html_framed_title();
-&header($title);
-print '<div id="wrapper" class="index">' . "\n";
-print '<header>' . "\n";
-print '<nav class="navbar navbar-default navbar-fixed-top" role="navigation">' . "\n";
-print '<div class="navbar-header">' . "\n";
-print '<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">' . "\n";
-print '<span class="sr-only">Toggle navigation</span>' . "\n";
-print '<span class="icon-bar"></span>' . "\n";
-print '<span class="icon-bar"></span>' . "\n";
-print '<span class="icon-bar"></span>' . "\n";
-print '</button>' . "\n";
-print '<a class="navbar-brand" target="page" href="body.cgi?open=system&open=status">Webmin ' . &get_webmin_version() . ' - ' . &get_display_hostname() . '</a>' . "\n";
-print '</div>' . "\n";
-print '<div class="collapse navbar-collapse" id="collapse">' . "\n";
-print '<ul class="nav navbar-nav visible-xs">' . "\n";
+$title = get_html_framed_title();
+header($title);
+
+print <<HTML;
+<header class="banner" role="banner">
+  <div class="primary-nav navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="body.cgi?open=system&open=status">
+      Webmin @{[ &get_webmin_version() ]} - @{[ &get_display_hostname() ]}
+      </a>
+      
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav class="collapse navbar-collapse" role="navigation">
+HTML
+
 if ($gconfig{'log'} && &foreign_available("webminlog")) {
 	print '<li><a target="page" href="webminlog/" onClick="show_logs(); return false;"><i class="fa fa fa-exclamation-triangle"></i> View Module\'s Logs</a></li>' . "\n";
 }

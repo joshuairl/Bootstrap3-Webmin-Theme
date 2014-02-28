@@ -4,12 +4,9 @@ sub theme_header {
 	print '<head>' , "\n";
 	print '<title>' , $_[0] , '</title>' , "\n";
 	print '<meta charset="utf-8">' , "\n";
-	print '<meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n";
-	print '<link href="/css/bootstrap.css" rel="stylesheet" type="text/css">' , "\n";
-	print '<link href="/css/fontawesome.css" rel="stylesheet" type="text/css">' , "\n";
-	print '<link href="/css/default.css" rel="stylesheet" type="text/css">' , "\n";
-	print '<script src="/js/jquery.js" type="text/javascript"></script>' , "\n";
-	print '<script src="/js/bootstrap.js" type="text/javascript"></script>' , "\n";
+	print '<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">' . "\n";
+	print '<link href="/assets/css/webmin.css" rel="stylesheet" type="text/css">' , "\n";
+	print '<script src="/assets/js/webmin.js" type="text/javascript"></script>' , "\n";
 	print '</head>' , "\n";
 	print '<body>' , "\n";
 	
